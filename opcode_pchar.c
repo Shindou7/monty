@@ -17,7 +17,7 @@ void pchar(stack_t **head, unsigned int line_number)
 	if ((*head)->n >= 0 && (*head)->n <= 127)
 		printf("%c\n", (*head)->n);
 	else
-  {
+	{
 		dprintf(2, "L%u: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}

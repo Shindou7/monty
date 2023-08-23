@@ -3,7 +3,7 @@
 /**
   * get_opcode_monty - selects the correct opcode to perform
   * @flag: the opcode
-  * Return: pointer to the function that executes 
+  * Return: pointer to the function that executes
   */
 void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 {
@@ -11,6 +11,7 @@ void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 		{ "push", push },
 		{ "pall", pall },
 		{ "pint", pint },
+		{ "_queues", _queues },
 		{ "pop", pop },
 		{ "swap", swap },
 		{ "add", add },
@@ -42,7 +43,7 @@ void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 /**
  * _strcmp - check the code
  *@str1: first string
- *@s2: second string
+ *@str2: second string
  * Return: Always 0.
  */
 

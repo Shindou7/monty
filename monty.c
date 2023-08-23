@@ -1,15 +1,15 @@
 #include "monty.h"
 
 /**
-  * _error - Error 
-  * @err0: The error code to manage
-  * @message: message error
-  * @line_number: line_number
-  * Return: Nothing
-  */
+ * _error - Error
+ * @err0: The error code to manage
+ * @message: message error
+ * @line_number: line_number
+ * Return: Nothing
+ */
 void _error(int err0, char *message, unsigned int line_number)
 {
-  switch (err0)
+	switch (err0)
 	{
 		case ERR_INST:
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, message);
@@ -23,7 +23,8 @@ void _error(int err0, char *message, unsigned int line_number)
 }
 
 /**
-  * handle_push - Error 
+  * handle_push - Error
+  * @head: head monty
   * @_param: The error code to manage
   * @line_number: line_number
   * Return: Nothing
@@ -46,11 +47,11 @@ int handle_push(stack_t **head, char *_param, unsigned int line_number)
   * Exec_function - Exec_function
   * @_code: ....
   * @_param: .....
-  * @line_number: .....
+  * @_number: .....
   * @flag: ......
   * Return: nothing
   */
-int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
+int Exec_function(char *_code, char *_param, unsigned int _number, int flag)
 {
 	void (*fd)(stack_t **, unsigned int);
 
@@ -66,15 +67,15 @@ int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
 		{
 			if (flag != 0 && flag == _QUEUE)
 				fd = get_opcode_monty("_queues");
-			return handle_push(&head, _param, line_number);
+			return (handle_push(&head, _param, _number));
 		}
 		else
 		{
-			fd(&head, line_number);
+			fd(&head, _number);
 		}
 		return (flag);
 	}
-	_error(ERR_INST, _code, line_number);
+	_error(ERR_INST, _code, _number);
 	return (ERR_INST);
 }
 /**
@@ -100,7 +101,7 @@ void free_stack(stack_t *head)
   * @argc: The args number
   * @argv: The args passed to the interpreter
   * Return: Always zero
-
+*/
 int main(int argc, char *argv[])
 {
 	FILE *fd = NULL;

@@ -71,7 +71,7 @@ int _push_param(char *_param);
 void _queues(stack_t **head, unsigned int value);
 
 int main(int argc, char *argv[]);
-int Exec_function(char *_code, char *_param, unsigned int line_number, int flag);
+int Exec_function(char *_code, char *_param, unsigned int _number, int flag);
 int handle_push(stack_t **head, char *_param, unsigned int line_number);
 void _error(int err0, char *message, unsigned int line_number);
 void free_stack(stack_t *head);

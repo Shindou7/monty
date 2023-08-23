@@ -11,12 +11,11 @@ void mul(stack_t **head, unsigned int line_number)
 	stack_t *flag = *head;
 	unsigned int  count = 0;
 
-	    while (flag != NULL)
-      {
-        count++;
-        flag = flag->next;
-      }
-
+	while (flag != NULL)
+	{
+		count++;
+		flag = flag->next;
+	}
 	if (count < 2)
 	{
 		dprintf(2, "L%u: can't mul, stack too short\n", line_number);

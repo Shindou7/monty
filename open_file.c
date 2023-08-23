@@ -34,27 +34,25 @@ FILE *open_file(int argc, char *argv[])
  */
 int _push_param(char *_param)
 {
-    if (_param == NULL || !_digits(_param))
-        return (ERR_PUSH);
-
-    return (VALID_PARM);
+	if (_param == NULL || !_digits(_param))
+		return (ERR_PUSH);
+	return (VALID_PARM);
 }
 
 /**
  * _digits - _digits ...
- * @str: string 
+ * @str: string
  * Return: file struct
  */
 int _digits(char *str)
 {
-    while (*str != '\0')
-    {
-        if (!isdigit(*str) && str[0] != '-')
-            return (0);
-
-        ++str;
-    }
-    return (1);
+	while (*str != '\0')
+	{
+		if (!isdigit(*str) && str[0] != '-')
+			return (0);
+		++str;
+	}
+	return (1);
 }
 
 
@@ -66,28 +64,27 @@ int _digits(char *str)
  */
 void _queues(stack_t **head, unsigned int value)
 {
-    stack_t *new_elem = malloc(sizeof(stack_t));
-    if (new_elem == NULL)
-    {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
+	stack_t *new_elem = malloc(sizeof(stack_t)), *flag;
 
-    new_elem->n = value;
-    new_elem->next = NULL;
-
-    if (*head)
-    {
-        stack_t *flag = *head;
-        while (flag->next != NULL)
-            flag = flag->next;
-        new_elem->prev = flag;
-        flag->next = new_elem;
-    }
-    else
-    {
-        new_elem->prev = NULL;
-        *head = new_elem;
-    }
+	if (new_elem == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	new_elem->n = value;
+	new_elem->next = NULL;
+	if (*head)
+	{
+		flag = *head;
+		while (flag->next != NULL)
+			flag = flag->next;
+		new_elem->prev = flag;
+		flag->next = new_elem;
+	}
+	else
+	{
+		new_elem->prev = NULL;
+		*head = new_elem;
+	}
 }
 

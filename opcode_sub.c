@@ -11,17 +11,18 @@ void sub(stack_t **head, unsigned int line_number)
 	stack_t *flag = *head;
 	unsigned int count = 0;
 
-	    while (flag != NULL) {
-        count++;
-        flag = flag->next;
-    }
+	while (flag != NULL)
+	{
+		count++;
+		flag = flag->next;
+	}
 
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-  flag = *head;
+	flag = *head;
 	flag->next->n = flag->next->n - flag->n;
 	*head = flag->next;
 	free(flag);

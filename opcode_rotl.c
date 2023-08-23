@@ -9,15 +9,15 @@
 
 void rotl(stack_t **head, unsigned int line_number)
 {
-  stack_t *flag = *head, *new_head = NULL;
+	stack_t *flag = *head, *new_head = NULL;
 	(void) line_number;
 
 	if (flag && flag->next)
 	{
-    new_head = flag->next;
+		new_head = flag->next;
 		while (flag->next != NULL)
 		{
-      flag = flag->next;	
+			flag = flag->next;
 		}
 		flag->next = *head;
 		*head = new_head;
