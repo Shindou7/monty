@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
-  * nop -  nop top of stack y second top stack
-  * @stack: stack head
+  * nop - nop top of stack y second top stack
+  * @head: stack head
   * @line_number: line_number
   * Return: Nothing
   */
