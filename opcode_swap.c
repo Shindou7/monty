@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * swap - adds the top two elements of the stack
+ * s_swap - adds the top two elements of the stack
  * @head: pointer to lists for monty stack
  * @line_number: line number
  *
  * Return: Nothing
  */
-void swap(stack_t **head, unsigned int line_number)
+void s_swap(stack_t **head, unsigned int line_number)
 {
 	unsigned int  temp = 0, count = 0;
 
