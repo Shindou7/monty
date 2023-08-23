@@ -22,17 +22,23 @@ void _error(int err0, char *message, unsigned int line_number)
 	}
 }
 
-int handle_push(stack_t **stack, char *op_param, unsigned int line_number)
+/**
+  * handle_push - Error 
+  * @_param: The error code to manage
+  * @line_number: line_number
+  * Return: Nothing
+  */
+int handle_push(stack_t **head, char *_param, unsigned int line_number)
 {
-    int status_op = check_push_param(op_param);
-    if (status_op == ERR_PUSH)
-    {
-        _error(ERR_PUSH, NULL, line_number);
-        return ERR_PUSH;
-    }
+	int status_op = check_push_param(_param);
 
-    push(stack, atoi(op_param));
-    return VALID_PARM;
+	if (status_op == ERR_PUSH)
+	{
+		_error(ERR_PUSH, NULL, line_number);
+		return (ERR_PUSH);
+	}
+	push(head, atoi(_param));
+	return (VALID_PARM);
 }
 
 
@@ -42,45 +48,35 @@ int handle_push(stack_t **stack, char *op_param, unsigned int line_number)
   * @_param: .....
   * @line_number: .....
   * @flag: ......
-  *
-  * Return: 0 if the operation was executed correctly or errcode if is invalid
+  * Return: nothing
   */
-
 int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
 {
-    void (*fd)(stack_t **, unsigned int);
+	void (*fd)(stack_t **, unsigned int);
 
-    if (strcmp(_code, "stack") == 0)
-        return METH_STACK;
-    else if (strcmp(_code, "queue") == 0)
-        return METH_QUEUE;
+	if (strcmp(_code, "stack") == 0)
+		return (METH_STACK);
+	else if (strcmp(_code, "queue") == 0)
+		return (METH_QUEUE);
 
-    fd = get_opcode_monty(_code);
-    if (fd)
-    {
-        if (strcmp(_code, "push") == 0)
-        {
-            if (flag != 0 && flag == METH_QUEUE)
-                fd = get_opcode_monty("push_queue");
-
-            return handle_push(&head, _param, line_number);
-        }
-        else
-        {
-            fd(&head, line_number);
-        }
-
-        return (flag);
-    }
-
-    _error(ERR_INST, _code, line_number);
-    return (ERR_INST);
+	fd = get_opcode_monty(_code);
+	if (fd)
+	{
+		if (strcmp(_code, "push") == 0)
+		{
+			if (flag != 0 && flag == METH_QUEUE)
+				fd = get_opcode_monty("push_queue");
+			return handle_push(&head, _param, line_number);
+		}
+		else
+		{
+			fd(&head, line_number);
+		}
+		return (flag);
+	}
+	_error(ERR_INST, _code, line_number);
+	return (ERR_INST);
 }
-
-
-
-
-
 
 /**
   * main - The Monty Interpreter entry point
@@ -88,45 +84,44 @@ int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
   * @argv: The args passed to the interpreter
   * Return: Always zero
 
-int main(int argc, char *argv[])
+int main(int argn, char *args[])
 {
-    void (*f)(stack_t **stack, unsigned int line_number);
-    FILE *fd;
-    size_t size = 256;
-    ssize_t nlines = 0;
-    char *lines[2] = {NULL, NULL};
-    stack_t *head = NULL;
-    char *buffer = NULL;
-    unsigned int cont = 1;
+	FILE *fd = NULL;
+	size_t line_len = 0;
+	unsigned int line_num = 1;
+	int readed = 0, op_status = 0;
+	char *filename = NULL, *op_code = NULL, *op_param = NULL, *buff = NULL;
 
-    fd = check_input(argc, argv);
+	filename = args[1];
+	check_args_num(argn);
+	fd = open_file(argc, argv);
 
-    nlines = getline(&buffer, &size, fd);
-    while (nlines != -1)
-    {
-        lines[0] = _strtoky(buffer, " \t\n");
-        if (lines[0] && lines[0][0] != '#')
-        {
-            f = get_opcodes(lines[0]);
-            if (!f)
-            {
-                dprintf(2, "L%u: ", cont);
-                dprintf(2, "unknown instruction %s\n", lines[0]);
-                free(buffer);
-                fclose(fd);
-                exit(EXIT_FAILURE);
-            }
-            vglo.arg = _strtoky(NULL, " \t\n");
-            f(&head, cont);
-        }
-        nlines = getline(&buffer, &size, fd);
-        cont++;
-    }
+	while ((readed = getline(&buff, &line_len, fd)) != -1)
+	{
+		op_code = strtok(buff, "\t\n ");
+		if (op_code)
+		{
+			if (op_code[0] == '#')
+			{
+				++line_num;
+				continue;
+			}
 
-    free(buffer);
-    fclose(fd);
+			op_param = strtok(NULL, "\t\n ");
+			op_status = handle_execution(op_code, op_param, line_num, op_status);
 
-    free_dlistint(head);
+			if (op_status >= 100 && op_status < 300)
+			{
+				fclose(fd);
+				handle_error(op_status, op_code, line_num, buff);
+			}
+		}
 
-    return (0);
+		++line_num;
+	}
+
+	frees_stack();
+	free(buff);
+	fclose(fd);
+	return (0);
 }
