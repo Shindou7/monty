@@ -1,6 +1,8 @@
 #ifndef _MONTY_
 #define _MONTY_
 
+#define _QUEUE		301
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
