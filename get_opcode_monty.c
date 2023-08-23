@@ -11,7 +11,7 @@ void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 		{ "push", s_push },
 		{ "pall", s_pall },
 		{ "pint", s_pint },
-		{ "_queues", s_queues },
+		{ "push_queue", s_queues },
 		{ "pop", s_pop },
 		{ "swap", s_swap },
 		{ "add", s_add },
