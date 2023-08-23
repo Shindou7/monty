@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * mul -  multiplies the top element to the second top element of the stack
+ * s_mul -  multiplies the top element to the second top element of the stack
  * @head:  head of the linked list
  * @line_number: line_number
  * Return: Nothing
  */
-void mul(stack_t **head, unsigned int line_number)
+void s_mul(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = *head;
 	unsigned int  count = 0;

@@ -48,27 +48,27 @@ typedef struct instruction_s
 int _strcmp(char *str1, char *str2);
 
 
-void pall(stack_t **head, unsigned int line_number);
-void push(stack_t **head, unsigned int line_number);
-void pint(stack_t **head, unsigned int line_number);
-void pop(stack_t **head, unsigned int line_number);
-void swap(stack_t **head, unsigned int line_number);
-void add(stack_t **head, unsigned int line_number);
-void nop(stack_t **head, unsigned int line_number);
-void sub(stack_t **head, unsigned int line_number);
-void div(stack_t **head, unsigned int line_number);
-void mul(stack_t **head, unsigned int line_number);
-void mod(stack_t **head, unsigned int line_number);
-void pchar(stack_t **head, unsigned int line_number);
-void pstr(stack_t **head, unsigned int line_number);
-void rotl(stack_t **head, unsigned int line_number);
-void rotr(stack_t **head, unsigned int line_number);
+void s_pall(stack_t **head, unsigned int line_number);
+void s_push(stack_t **head, unsigned int line_number);
+void s_pint(stack_t **head, unsigned int line_number);
+void s_pop(stack_t **head, unsigned int line_number);
+void s_swap(stack_t **head, unsigned int line_number);
+void s_add(stack_t **head, unsigned int line_number);
+void s_nop(stack_t **head, unsigned int line_number);
+void s_sub(stack_t **head, unsigned int line_number);
+void s_div(stack_t **head, unsigned int line_number);
+void s_mul(stack_t **head, unsigned int line_number);
+void s_mod(stack_t **head, unsigned int line_number);
+void s_pchar(stack_t **head, unsigned int line_number);
+void s_pstr(stack_t **head, unsigned int line_number);
+void s_rotl(stack_t **head, unsigned int line_number);
+void s_rotr(stack_t **head, unsigned int line_number);
 void (*get_opcode_monty(char *flag))(stack_t **, unsigned int);
 
 FILE *open_file(int argc, char *argv[]);
 int _digits(char *str);
 int _push_param(char *_param);
-void _queues(stack_t **head, unsigned int value);
+void s_queues(stack_t **head, unsigned int value);
 
 int main(int argc, char *argv[]);
 int Exec_function(char *_code, char *_param, unsigned int _number, int flag);

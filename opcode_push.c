@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * push - Adds a push int to a stack
+ * s_push - Adds a push int to a stack
  * @head: The head for monty stack
  * @line_number: number of line
  */
-void push(stack_t **head, unsigned int line_number)
+void s_push(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = NULL;
 

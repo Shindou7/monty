@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
-  * rotr - mod top of stack y second top stacks
+  * s_rotr - mod top of stack y second top stacks
   * @head: head of the linked list
   * @line_number: line_number
   * Return: Nothing
   */
-void rotr(stack_t **head, unsigned int line_number)
+void s_rotr(stack_t **head, unsigned int line_number)
 {
 	stack_t *back_head = NULL;
 	(void) line_number;

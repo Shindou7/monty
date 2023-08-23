@@ -66,7 +66,7 @@ int Exec_function(char *_code, char *_param, unsigned int _number, int flag)
 		if (strcmp(_code, "push") == 0)
 		{
 			if (flag != 0 && flag == _QUEUE)
-				fd = get_opcode_monty("_queues");
+				fd = get_opcode_monty("push_queue");
 			return (handle_push(&head, _param, _number));
 		}
 		else

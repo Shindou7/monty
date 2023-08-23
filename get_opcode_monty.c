@@ -8,22 +8,22 @@
 void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 {
 	instruction_t instruct[] = {
-		{ "push", push },
-		{ "pall", pall },
-		{ "pint", pint },
-		{ "_queues", _queues },
-		{ "pop", pop },
-		{ "swap", swap },
-		{ "add", add },
-		{ "nop", nop },
-		{ "sub", sub },
-		{ "div", div },
-		{ "mul", mul },
-		{ "mod", mod },
-		{ "pchar", pchar },
-		{ "pstr", pstr },
-		{ "rotl", rotl },
-		{ "rotr", rotr },
+		{ "push", s_push },
+		{ "pall", s_pall },
+		{ "pint", s_pint },
+		{ "push_queue", s_queues },
+		{ "pop", s_pop },
+		{ "swap", s_swap },
+		{ "add", s_add },
+		{ "nop", s_nop },
+		{ "sub", s_sub },
+		{ "div", s_div },
+		{ "mul", s_mul },
+		{ "mod", s_mod },
+		{ "pchar", s_pchar },
+		{ "pstr", s_pstr },
+		{ "rotl", s_rotl },
+		{ "rotr", s_rotr },
 		{ NULL, NULL }
 	};
 	int i = 0;

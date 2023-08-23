@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * mod - computes the rest of the division of the second
+ * s_mod - computes the rest of the division of the second
  * @head: stack head
  * @line_number: line_number
  * Return: Nothing
  */
-void mod(stack_t **head, unsigned int line_number)
+void s_mod(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = *head;
 	unsigned int count = 0;
