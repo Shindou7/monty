@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * pint - print int a top of stack,
+ * s_pint - print int a top of stack,
  * @head: The head of the stack
  * @line_number: number of line opcode
  * Return: Nothing
  */
-void pint(stack_t **head, unsigned int line_number)
+void s_pint(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
 	{
