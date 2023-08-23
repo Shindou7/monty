@@ -7,6 +7,7 @@
 
 #define ERR_INST	100
 #define ERR_PUSH	201
+#define VALID_PARM 1 
 
 #include <stdio.h>
 #include <stdlib.h>
