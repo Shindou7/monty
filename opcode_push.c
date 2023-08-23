@@ -10,16 +10,15 @@ void push(stack_t **head, unsigned int line_number)
 
 	flag = malloc(sizeof(stack_t));
 	if (flag == NULL)
-  {
-    fprintf(stderr, "Error: malloc failed\n");
-    exit(EXIT_FAILURE);
-  }
-
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	flag->n = line_number;
-  flag->next = *head;
+	flag->next = *head;
 	flag->prev = NULL;
-	
-  if (*head)
+
+	if (*head)
 	{
 		(*head)->prev = flag;
 	}
