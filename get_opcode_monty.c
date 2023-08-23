@@ -17,7 +17,7 @@ void (*get_opcode_monty(char *flag))(stack_t **, unsigned int)
 		{ "add", add },
 		{ "nop", nop },
 		{ "sub", sub },
-		{ "div", divide },
+		{ "div", div },
 		{ "mul", mul },
 		{ "mod", mod },
 		{ "pchar", pchar },
