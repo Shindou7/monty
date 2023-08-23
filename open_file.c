@@ -57,3 +57,37 @@ int _digits(char *str)
     return (1);
 }
 
+
+/**
+ * _queues - _queues
+ * @head: argument count
+ * @value: argument vector
+ * Return: file struct
+ */
+void _queues(stack_t **head, unsigned int value)
+{
+    stack_t *new_elem = malloc(sizeof(stack_t));
+    if (new_elem == NULL)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    new_elem->n = value;
+    new_elem->next = NULL;
+
+    if (*head)
+    {
+        stack_t *flag = *head;
+        while (flag->next != NULL)
+            flag = flag->next;
+        new_elem->prev = flag;
+        flag->next = new_elem;
+    }
+    else
+    {
+        new_elem->prev = NULL;
+        *head = new_elem;
+    }
+}
+
