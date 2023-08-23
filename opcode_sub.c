@@ -17,7 +17,7 @@ void s_sub(stack_t **head, unsigned int line_number)
 		flag = flag->next;
 	}
 
-	if (length < 2)
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
