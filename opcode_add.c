@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * add - Adds  the stack
+ * s_add - Adds  the stack
  * @head: The head of the stack
  * @line_number: The line on which the error occurred
  * Return: Nothing
  */
-void add(stack_t **head, unsigned int line_number)
+void s_add(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = *head;
 	unsigned int count = 0;
