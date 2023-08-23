@@ -77,6 +77,23 @@ int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
 	_error(ERR_INST, _code, line_number);
 	return (ERR_INST);
 }
+/**
+ * free_stack - frees the doubly linked list
+ *
+ * @head: head of the list
+ * Return: no return
+ */
+void free_stack(stack_t *head)
+{
+	stack_t *tmp;
+
+	while ((tmp = head) != NULL)
+	{
+		head = head->next;
+		free(tmp);
+	}
+}
+
 
 /**
   * main - The Monty
@@ -111,7 +128,7 @@ int main(int argc, char *argv[])
 			{
 				fclose(fd);
 				free(buffer);
-				frees_stack();
+				frees_stack(head);
 				return (staty);
 			}
 		}
@@ -119,6 +136,6 @@ int main(int argc, char *argv[])
 	}
 	free(buffer);
 	fclose(fd);
-	frees_stack();
+	frees_stack(head);
 	return (0);
 }
