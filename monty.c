@@ -1,5 +1,6 @@
 #include "monty.h"
-
+#include <stdio.h>
+stack_t *head = NULL;
 /**
  * _error - Error
  * @err0: The error code to manage
@@ -21,7 +22,6 @@ void _error(int err0, char *message, unsigned int line_number)
 			break;
 	}
 }
-
 /**
   * handle_push - Error
   * @head: head monty
@@ -41,7 +41,6 @@ int handle_push(stack_t **head, char *_param, unsigned int line_number)
 	s_push(head, atoi(_param));
 	return (VALID_PARM);
 }
-
 
 /**
   * Exec_function - Exec_function
@@ -115,11 +114,11 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
-	filename = args[1];
+	filename = argv[1];
 	fd = open_file(argc, argv);
 	while ((rd = getline(&buffer, &line_lenght, fd)) != -1)
 	{
-		_code = strtok(buff, "\t\n ");
+		_code = strtok(buffer, "\t\n ");
 		if (_code && _code[0] != '#')
 		{
 			_param = strtok(NULL, "\t\n ");
@@ -129,7 +128,7 @@ int main(int argc, char *argv[])
 			{
 				fclose(fd);
 				free(buffer);
-				frees_stack(head);
+				free_stack(head);
 				return (staty);
 			}
 		}
@@ -137,6 +136,6 @@ int main(int argc, char *argv[])
 	}
 	free(buffer);
 	fclose(fd);
-	frees_stack(head);
+	free_stack(head);
 	return (0);
 }
