@@ -52,6 +52,7 @@ void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
+void sub(stack_t **head, unsigned int line_number);
 
 
 
