@@ -30,7 +30,7 @@ void _error(int err0, char *message, unsigned int line_number)
   */
 int handle_push(stack_t **head, char *_param, unsigned int line_number)
 {
-	int status_op = check_push_param(_param);
+	int status_op = _push_param(_param);
 
 	if (status_op == ERR_PUSH)
 	{
@@ -55,17 +55,17 @@ int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
 	void (*fd)(stack_t **, unsigned int);
 
 	if (strcmp(_code, "stack") == 0)
-		return (METH_STACK);
+		return (_STACK);
 	else if (strcmp(_code, "queue") == 0)
-		return (METH_QUEUE);
+		return (_QUEUE);
 
 	fd = get_opcode_monty(_code);
 	if (fd)
 	{
 		if (strcmp(_code, "push") == 0)
 		{
-			if (flag != 0 && flag == METH_QUEUE)
-				fd = get_opcode_monty("push_queue");
+			if (flag != 0 && flag == _QUEUE)
+				fd = get_opcode_monty("_queues");
 			return handle_push(&head, _param, line_number);
 		}
 		else
