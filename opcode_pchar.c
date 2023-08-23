@@ -10,7 +10,7 @@ void s_pchar(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
 	{
-		dprintf(2, "L%u: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -18,7 +18,7 @@ void s_pchar(stack_t **head, unsigned int line_number)
 		printf("%c\n", (*head)->n);
 	else
 	{
-		dprintf(2, "L%u: can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
