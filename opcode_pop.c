@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * pop - remove element a list
+ * s_pop - remove element a list
  * @head: pointer to first node
  * @line_number: line number
  * Return: Nothing
  */
-void pop(stack_t **head, unsigned int line_number)
+void s_pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = *head;
 
