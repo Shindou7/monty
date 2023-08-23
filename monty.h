@@ -4,6 +4,10 @@
 #define _QUEUE		301
 #define _STACK		300
 
+
+#define ERR_INST	100
+#define ERR_PUSH	201
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
