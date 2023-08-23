@@ -61,6 +61,7 @@ void pstr(stack_t **head, unsigned int line_number);
 void rotl(stack_t **head, unsigned int line_number);
 void rotr(stack_t **head, unsigned int line_number);
 void (*get_opcode_monty(char *flag))(stack_t **, unsigned int);
+FILE *open_file(int argc, char *argv[]);
 
 
 
