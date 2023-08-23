@@ -2,6 +2,7 @@
 #define _MONTY_
 
 #define _QUEUE		301
+#define _STACK		300
 
 #include <stdio.h>
 #include <stdlib.h>
