@@ -107,14 +107,13 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 1;
 	size_t line_lenght = 0;
 	int rd = 0, staty = 0;
-	char *filename = NULL, *_code = NULL, *_param = NULL, *buffer = NULL;
+	char  *_code = NULL, *_param = NULL, *buffer = NULL;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
-	filename = argv[1];
 	fd = open_file(argc, argv);
 	while ((rd = getline(&buffer, &line_lenght, fd)) != -1)
 	{
