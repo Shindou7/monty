@@ -42,7 +42,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+int _strcmp(char *str1, char *str2);
 
 
 void pall(stack_t **head, unsigned int line_number);
@@ -60,6 +60,7 @@ void pchar(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
 void rotl(stack_t **head, unsigned int line_number);
 void rotr(stack_t **head, unsigned int line_number);
+void (*get_opcode_monty(char *flag))(stack_t **, unsigned int);
 
 
 
