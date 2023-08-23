@@ -23,6 +23,7 @@
 typedef struct stack_s
 {
         int n;
+
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
@@ -44,6 +45,8 @@ typedef struct instruction_s
 
 
 
+
+void pall(stack_t **head, unsigned int line_number);
 
 
 
