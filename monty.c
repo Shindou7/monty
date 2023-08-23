@@ -38,7 +38,7 @@ int handle_push(stack_t **head, char *_param, unsigned int line_number)
 		_error(ERR_PUSH, NULL, line_number);
 		return (ERR_PUSH);
 	}
-	push(head, atoi(_param));
+	s_push(head, atoi(_param));
 	return (VALID_PARM);
 }
 
