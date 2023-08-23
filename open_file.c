@@ -26,3 +26,34 @@ FILE *open_file(int argc, char *argv[])
 
 	return (filename);
 }
+
+/**
+ * _push_param - O_push_param
+ * @_param: _param
+ * Return: file struct
+ */
+int _push_param(char *_param)
+{
+    if (_param == NULL || !_digits(_param))
+        return (ERR_PUSH);
+
+    return (VALID_PARM);
+}
+
+/**
+ * _digits - _digits ...
+ * @str: string 
+ * Return: file struct
+ */
+int _digits(char *str)
+{
+    while (*str != '\0')
+    {
+        if (!isdigit(*str) && str[0] != '-')
+            return (0);
+
+        ++str;
+    }
+    return (1);
+}
+
