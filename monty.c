@@ -79,49 +79,46 @@ int Exec_function(char *_code, char *_param, unsigned int line_number, int flag)
 }
 
 /**
-  * main - The Monty Interpreter entry point
+  * main - The Monty
   * @argc: The args number
   * @argv: The args passed to the interpreter
   * Return: Always zero
 
-int main(int argn, char *args[])
+int main(int argc, char *argv[])
 {
 	FILE *fd = NULL;
-	size_t line_len = 0;
-	unsigned int line_num = 1;
-	int readed = 0, op_status = 0;
-	char *filename = NULL, *op_code = NULL, *op_param = NULL, *buff = NULL;
+	unsigned int line_number = 1;
+	size_t line_lenght = 0;
+	int rd = 0, staty = 0;
+	char *filename = NULL, *_code = NULL, *_param = NULL, *buffer = NULL;
 
-	filename = args[1];
-	check_args_num(argn);
-	fd = open_file(argc, argv);
-
-	while ((readed = getline(&buff, &line_len, fd)) != -1)
+	if (argc != 2)
 	{
-		op_code = strtok(buff, "\t\n ");
-		if (op_code)
+		fprintf(stderr, "USAGE: monty file\n");
+		return (EXIT_FAILURE);
+	}
+	filename = args[1];
+	fd = open_file(argc, argv);
+	while ((rd = getline(&buffer, &line_lenght, fd)) != -1)
+	{
+		_code = strtok(buff, "\t\n ");
+		if (_code && _code[0] != '#')
 		{
-			if (op_code[0] == '#')
-			{
-				++line_num;
-				continue;
-			}
+			_param = strtok(NULL, "\t\n ");
+			staty = Exec_function(_code, _param, line_number, staty);
 
-			op_param = strtok(NULL, "\t\n ");
-			op_status = handle_execution(op_code, op_param, line_num, op_status);
-
-			if (op_status >= 100 && op_status < 300)
+			if (staty >= 100 && staty < 300)
 			{
 				fclose(fd);
-				handle_error(op_status, op_code, line_num, buff);
+				free(buffer);
+				frees_stack();
+				return (staty);
 			}
 		}
-
-		++line_num;
+		++line_number;
 	}
-
-	frees_stack();
-	free(buff);
+	free(buffer);
 	fclose(fd);
+	frees_stack();
 	return (0);
 }
