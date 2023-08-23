@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
-  * rotl - rotates the stack to the top
+  * s_rotl - rotates the stack to the top
   * @head: The head of the stack
   * @line_number: line_number
   * Return: Nothing
   */
 
-void rotl(stack_t **head, unsigned int line_number)
+void s_rotl(stack_t **head, unsigned int line_number)
 {
 	stack_t *flag = *head, *new_head = NULL;
 	(void) line_number;
