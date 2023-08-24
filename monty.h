@@ -1,6 +1,6 @@
 #ifndef _MONTY_
 #define _MONTY_
-
+#define _GNU_SOURCE
 #define _QUEUE		301
 #define _STACK		300
 
