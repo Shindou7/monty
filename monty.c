@@ -4,6 +4,7 @@
 #include "monty.h"
 
 stack_t *head = NULL;
+
 /**
  * _error - Error
  * @err0: The error code to manage
