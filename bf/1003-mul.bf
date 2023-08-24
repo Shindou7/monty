@@ -1,62 +1,62 @@
-,>,            ; Read two digits from stdin
+,>,        ; Read two digits from stdin
 
->++++++        ; Convert ASCII '0' to 6 in the second cell
+>++++++    ; Convert ASCII '0' to 6
 
-[               ; Convert ASCII digit to integer (first digit)
-	>++++++++   ; Convert ASCII '0' to 8
-	<-          ; Move back to input cell
+[           ; Convert ASCII digit to integer (1st digit)
+	>++++++++
+	<-
 ]
 
->>++++++       ; Convert ASCII '0' to 6 in the second cell (reset)
+>>++++++   ; Convert ASCII '0' to 6 (reset)
 
-[               ; Convert ASCII digit to integer (second digit)
-	>++++++++   ; Convert ASCII '0' to 8
-	<-          ; Move back to input cell
+[           ; Convert ASCII digit to integer (2nd digit)
+	>++++++++
+	<-
 ]
 
->               ; Move to the third cell (result)
+>           ; Move to the 3rd cell (result)
 
-[               ; Multiply loop
-	-           ; Decrement the second cell (iterator)
-	<<<<-       ; Move back to the second cell
+[           ; Multiply loop
+	-       ; Decrement 2nd cell (iterator)
+	<<<<-   ; Move back to 2nd cell
 
-	<-          ; Move back to the first cell (second input digit)
-	>>>>>       ; Move to the fourth cell (temporary storage)
+	<-      ; Move back to 1st cell (2nd input digit)
+	>>>>>   ; Move to the 4th cell (temporary storage)
 
-	>           ; Move to the fifth cell
+	>       ; Move to the 5th cell
 
-	[           ; Inner loop: Multiply and accumulate
-		>+      ; Increment fourth cell (product)
-		>>+     ; Increment fifth cell (iterator)
-		<<<-    ; Move back to third cell
-	]           ; End of inner loop
+	[       ; Inner loop: Multiply and accumulate
+		>+  ; Increment 4th cell (product)
+		>>+ ; Increment 5th cell (iterator)
+		<<<-; Move back to 3rd cell
+	]
 
-	>>>         ; Move to the sixth cell (temporary storage)
+	>>>     ; Move to the 6th cell (temporary storage)
 
-	[           ; Inner loop: Accumulate result
-		-       ; Decrement fifth cell (iterator)
-		<<<+    ; Increment sixth cell (result)
-		>>>     ; Move back to fifth cell
-	]           ; End of inner loop
+	[       ; Inner loop: Accumulate result
+		-   ; Decrement 5th cell (iterator)
+		<<<+; Increment 6th cell (result)
+		>>> ; Move back to 5th cell
+	]
 
-	<<<<-       ; Move back to second cell (iterator)
+	<<<<-   ; Move back to 2nd cell (iterator)
 ]
 
->>              ; Move to the seventh cell (result)
+>>          ; Move to the 7th cell (result)
 
-[               ; Convert integer result to ASCII for printing
-	-           ; Decrement seventh cell (ASCII offset)
-	>+          ; Increment eighth cell (result)
-	<           ; Move back to seventh cell
+[           ; Convert integer result to ASCII for printing
+	-       ; Decrement 7th cell (ASCII offset)
+	>+      ; Increment 8th cell (result)
+	<       ; Move back to 7th cell
 ]
 
-.               ; Print the result as an ASCII character
+.           ; Print result as ASCII character
 
->++++++        ; Convert ASCII '0' to 6 in the second cell (reset)
-[               ; Convert result to integer
-	<++++++    ; Convert ASCII '0' to 6
-	>-         ; Decrement the result cell (iterator)
-	<         ; Move back to the eighth cell (result)
+>++++++    ; Convert ASCII '0' to 6 (reset)
+[           ; Convert result to integer
+	<++++++;-; Convert ASCII '0' to 6
+	>++++   ; Decrement 8th cell (iterator)
+	<       ; Move back to 8th cell (result)
 ]
 
->>.             ; Print the result followed by a new line
+>>.         ; Print result followed by new line
