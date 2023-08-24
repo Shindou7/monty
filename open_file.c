@@ -57,12 +57,12 @@ int _digits(char *str)
 
 
 /**
- * _queues - _queues
+ * s_queues - _queues
  * @head: argument count
  * @value: argument vector
  * Return: file struct
  */
-void _queues(stack_t **head, unsigned int value)
+void s_queues(stack_t **head, unsigned int value)
 {
 	stack_t *new_elem = malloc(sizeof(stack_t)), *flag;
 
