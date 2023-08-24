@@ -1,5 +1,6 @@
-#include "monty.h"
 #include <stdio.h>
+#include "monty.h"
+
 stack_t *head = NULL;
 /**
  * _error - Error
